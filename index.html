@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAB Miranda Studios | Home</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="navbar">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html"><img src="img/branco.png" alt="Logo FAB"></a>
+            </div>
+
+            <button class="mobile-menu-icon" aria-label="Abrir Menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="portfolio.html">PORTFÓLIO</a></li>
+                <li><a href="servicos.html">SERVIÇOS</a></li>
+                <li><a href="contato.html" class="btn-contato">CONTATO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="subtitle reveal-up">EDITOR DE VÍDEOS</span>
+                <h1 class="main-title reveal-up">FABRÍCIO MIRANDA</h1>
+                <p class="impact-text reveal-fade-impact">
+                    Transformo visões em narrativas visuais.<br>
+                    Edições que prendem, impacto e engajamento.
+                </p>
+                <div class="hero-cards">
+                    <div class="h-card reveal-fade-card delay-1">
+                        <span class="card-label">ESPECIALIDADE</span>
+                        <p class="card-value">Vídeos Dinâmicos & YouTube</p>
+                    </div>
+                    <div class="h-card reveal-fade-card delay-2">
+                        <span class="card-label">MOTION DESIGN</span>
+                        <p class="card-value">Criativos de Vendas</p>
+                    </div>
+                    <div class="h-card reveal-fade-card delay-3">
+                        <span class="card-label">SOFTWARES</span>
+                        <p class="card-value">Photoshop, Premiere,<br>After Effects e CapCut</p>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator reveal-fade-impact" style="animation-delay: 2.5s;">
+                <span>ROLE PARA BAIXO</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <section class="portfolio-cta">
+            <div class="cta-card">
+                <span class="cta-subtitle">TRABALHOS SELECIONADOS</span>
+                <h2 class="cta-title">
+                    <span>CONFIRA MEU</span> 
+                    <span class="highlight">PORTFÓLIO</span>
+                </h2>
+                <p class="cta-text">
+                    Edição de alto nível e storytelling para criadores e marcas de impacto.
+                </p>
+                <a href="portfolio.html" class="btn-portfolio">
+                    <span>VER TODOS OS PROJETOS</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <a href="https://wa.me/5579988748411" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="img/branco.png" alt="Logo FAB">
+            </div>
+            <p class="copyright">
+                © 2026 • TODOS OS DIREITOS RESERVADOS
+            </p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/fabmiranda.studios/" target="_blank" class="instagram-link">INSTAGRAM</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuIcon = document.querySelector('.mobile-menu-icon');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuIcon.addEventListener('click', () => {
+                menuIcon.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'initial';
+            });
+
+            document.querySelectorAll('.nav-links li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuIcon.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = 'initial';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
