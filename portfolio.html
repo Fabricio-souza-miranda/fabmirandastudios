@@ -37,225 +37,204 @@
     </header>
 
     <main>
-        <section class="portfolio-section first-section">
+        <!-- SEÇÃO DE ESCOLHA INICIAL -->
+        <section class="portfolio-choice-section first-section" id="choice-section">
             <div class="portfolio-header">
                 <span class="section-tag">PORTFÓLIO</span>
-                <h2 class="section-title">VÍDEOS <span class="highlight">CURTOS</span></h2>
-                <p class="section-subtitle">TRABALHOS SELECIONADOS</p>
+                <h2 class="section-title">ESCOLHA UMA <span class="highlight">CATEGORIA</span></h2>
+                <p class="section-subtitle">O QUE VOCÊ DESEJA VER PRIMEIRO?</p>
             </div>
+            
+            <div class="choice-container">
+                <div class="choice-card" onclick="showPortfolio('video')">
+                    <div class="choice-icon-wrapper">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="choice-title">EDIÇÃO DE VÍDEO</h3>
+                    <p class="choice-desc">Audiovisual de alto impacto, Edição Dinâmica para YouTube, Shorts e Institucionais.</p>
+                    <span class="choice-btn">VER PROJETOS <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <div class="choice-card" onclick="showPortfolio('design')">
+                    <div class="choice-icon-wrapper">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h3 class="choice-title">DESIGN GRÁFICO</h3>
+                    <p class="choice-desc">Identidade Visual, Social Media, Criativos de Vendas e Estratégia Visual para Marcas.</p>
+                    <span class="choice-btn">VER PROJETOS <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </section>
 
-            <div class="swiper-master-container">
-                <div class="swiper shorts-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="video-container short-v">
-                                <div class="video-card">
-                                    <iframe width="462" height="821" src="https://www.youtube.com/embed/16RWa66VKwU" title="Sicredi Biomas 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">CORPORATIVO</span>
-                                    <h3 class="video-title">VÍDEO INSTITUCIONAL</h3>
-                                </div>
-                            </div>
-                        </div>
+        <!-- PORTFÓLIO DE VÍDEO -->
+        <div id="video-section" style="display: none;">
+            <section class="portfolio-section first-section">
+                <div class="portfolio-header">
+                    <span class="section-tag">EDIÇÃO DE VÍDEO</span>
+                    <h2 class="section-title">VÍDEOS <span class="highlight">CURTOS</span></h2>
+                    <p class="section-subtitle">TRABALHOS SELECIONADOS</p>
+                </div>
 
-                        <div class="swiper-slide">
-                            <div class="video-container short-v">
-                                <div class="video-card">
-                                    <iframe src="https://www.youtube.com/embed/Rrfx5ZbkbOQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">ALTA RETENÇÃO</span>
-                                    <h3 class="video-title">EDIÇÃO DINÂMICA</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="video-container short-v">
-                                <div class="video-card">
-                                    <iframe width="462" height="821" src="https://www.youtube.com/embed/UNXaa17IRZ8" title="O segredo para um vídeo de alto nível? Intencionalidade. 🔥 #aftereffects #motiongraphics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">SOCIAL MEDIA</span>
-                                    <h3 class="video-title">CONTEÚDO VIRAL</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-                        <div class="swiper-slide">
-                            <div class="video-container short-v">
-                                <div class="video-card">
-                                    <iframe src="https://www.youtube.com/embed/uax18KvmfIU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">GAMES</span>
-                                    <h3 class="video-title">PS2 NO CELULAR</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="video-container short-v">
-                                <div class="video-card">
-                                    <iframe src="https://www.youtube.com/embed/qesPZP5j8Rc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">ANÁLISE CLÍNICA</span>
-                                    <h3 class="video-title">HEMOGRAMA DESCOMPLICADO</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="video-container short-v">
-                                <div class="video-card">
-                                    <iframe src="https://www.youtube.com/embed/aRwiXWCyX5M" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">EDUCACIONAL</span>
-                                    <h3 class="video-title">CONTEÚDO DE VALOR</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="video-container short-v">
-                                <div class="video-card">
-                                    <iframe src="https://www.youtube.com/embed/l7RxTBqxpNQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">CONVERSÃO</span>
-                                    <h3 class="video-title">CRIATIVO DE VENDAS</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="video-container short-v">
-                                <div class="video-card">
-                                    <iframe src="https://www.youtube.com/embed/7xyoDwu22sY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">BRANDING</span>
-                                    <h3 class="video-title">ESTRATÉGIA VISUAL</h3>
-                                </div>
-                            </div>
+                <div class="swiper-master-container">
+                    <div class="swiper shorts-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><div class="video-container short-v"><div class="video-card"><iframe width="462" height="821" src="https://www.youtube.com/embed/16RWa66VKwU" title="Sicredi Biomas 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="video-text-overlay"><span class="video-category">CORPORATIVO</span><h3 class="video-title">VÍDEO INSTITUCIONAL</h3></div></div></div>
+                            <div class="swiper-slide"><div class="video-container short-v"><div class="video-card"><iframe src="https://www.youtube.com/embed/Rrfx5ZbkbOQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-text-overlay"><span class="video-category">ALTA RETENÇÃO</span><h3 class="video-title">EDIÇÃO DINÂMICA</h3></div></div></div>
+                            <div class="swiper-slide"><div class="video-container short-v"><div class="video-card"><iframe width="462" height="821" src="https://www.youtube.com/embed/UNXaa17IRZ8" title="O segredo para um vídeo de alto nível?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="video-text-overlay"><span class="video-category">SOCIAL MEDIA</span><h3 class="video-title">CONTEÚDO VIRAL</h3></div></div></div>
+                            <div class="swiper-slide"><div class="video-container short-v"><div class="video-card"><iframe src="https://www.youtube.com/embed/uax18KvmfIU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-text-overlay"><span class="video-category">GAMES</span><h3 class="video-title">PS2 NO CELULAR</h3></div></div></div>
+                            <div class="swiper-slide"><div class="video-container short-v"><div class="video-card"><iframe src="https://www.youtube.com/embed/qesPZP5j8Rc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-text-overlay"><span class="video-category">ANÁLISE CLÍNICA</span><h3 class="video-title">HEMOGRAMA DESCOMPLICADO</h3></div></div></div>
+                            <div class="swiper-slide"><div class="video-container short-v"><div class="video-card"><iframe src="https://www.youtube.com/embed/aRwiXWCyX5M" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-text-overlay"><span class="video-category">EDUCACIONAL</span><h3 class="video-title">CONTEÚDO DE VALOR</h3></div></div></div>
+                            <div class="swiper-slide"><div class="video-container short-v"><div class="video-card"><iframe src="https://www.youtube.com/embed/l7RxTBqxpNQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-text-overlay"><span class="video-category">CONVERSÃO</span><h3 class="video-title">CRIATIVO DE VENDAS</h3></div></div></div>
+                            <div class="swiper-slide"><div class="video-container short-v"><div class="video-card"><iframe src="https://www.youtube.com/embed/7xyoDwu22sY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-text-overlay"><span class="video-category">BRANDING</span><h3 class="video-title">ESTRATÉGIA VISUAL</h3></div></div></div>
                         </div>
                     </div>
+                    <div class="swiper-button-next next-shorts"></div>
+                    <div class="swiper-button-prev prev-shorts"></div>
                 </div>
-                <div class="swiper-button-next next-shorts"></div>
-                <div class="swiper-button-prev prev-shorts"></div>
-            </div>
-        </section>
+            </section>
 
-        <section class="portfolio-section">
-            <div class="portfolio-header">
-                <span class="section-tag">PORTFÓLIO</span>
-                <h2 class="section-title">VÍDEOS <span class="highlight">LONGOS</span></h2>
-                <p class="section-subtitle">TRABALHOS SELECIONADOS</p>
-            </div>
+            <section class="portfolio-section">
+                <div class="portfolio-header">
+                    <span class="section-tag">EDIÇÃO DE VÍDEO</span>
+                    <h2 class="section-title">VÍDEOS <span class="highlight">LONGOS</span></h2>
+                    <p class="section-subtitle">TRABALHOS SELECIONADOS</p>
+                </div>
 
-            <div class="swiper-master-container">
-                <div class="swiper long-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="video-container long-h">
-                                <div class="video-card">
-                                    <iframe src="https://www.youtube.com/embed/OzXxuFoGUIE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">CANAL DARK</span>
-                                    <h3 class="video-title">MESTRE SPLINTER</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="video-container long-h">
-                                <div class="video-card">
-                                    <iframe src="https://www.youtube.com/embed/ItSeMv-OLIs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">CANAL DARK</span>
-                                    <h3 class="video-title">STORYTELLING IMPACTANTE</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="video-container long-h">
-                                <div class="video-card">
-                                    <iframe src="https://www.youtube.com/embed/EJFgqV0j8eU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">EDUCACIONAL</span>
-                                    <h3 class="video-title">BILINGUANDO - INGLÊS</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="video-container long-h">
-                                <div class="video-card">
-                                    <iframe src="https://www.youtube.com/embed/hf7s2rNApHg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">GAMES MOBILE</span>
-                                    <h3 class="video-title">ALISSON BITS</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="video-container long-h">
-                                <div class="video-card">
-                                    <iframe src="https://www.youtube.com/embed/dZABta2nRhY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">GAMES MOBILE</span>
-                                    <h3 class="video-title">MELHORES JOGOS</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="video-container long-h">
-                                <div class="video-card">
-                                    <iframe src="https://www.youtube.com/embed/STR-M5m7bI8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                </div>
-                                <div class="video-text-overlay">
-                                    <span class="video-category">APRESENTAÇÃO</span>
-                                    <h3 class="video-title">YOTHO_YT - JORNADA</h3>
-                                </div>
-                            </div>
+                <div class="swiper-master-container">
+                    <div class="swiper long-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><div class="video-container long-h"><div class="video-card"><iframe src="https://www.youtube.com/embed/OzXxuFoGUIE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-text-overlay"><span class="video-category">CANAL DARK</span><h3 class="video-title">MESTRE SPLINTER</h3></div></div></div>
+                            <div class="swiper-slide"><div class="video-container long-h"><div class="video-card"><iframe src="https://www.youtube.com/embed/ItSeMv-OLIs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-text-overlay"><span class="video-category">CANAL DARK</span><h3 class="video-title">STORYTELLING IMPACTANTE</h3></div></div></div>
+                            <div class="swiper-slide"><div class="video-container long-h"><div class="video-card"><iframe src="https://www.youtube.com/embed/EJFgqV0j8eU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-text-overlay"><span class="video-category">EDUCACIONAL</span><h3 class="video-title">BILINGUANDO - INGLÊS</h3></div></div></div>
+                            <div class="swiper-slide"><div class="video-container long-h"><div class="video-card"><iframe src="https://www.youtube.com/embed/hf7s2rNApHg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-text-overlay"><span class="video-category">GAMES MOBILE</span><h3 class="video-title">ALISSON BITS</h3></div></div></div>
+                            <div class="swiper-slide"><div class="video-container long-h"><div class="video-card"><iframe src="https://www.youtube.com/embed/dZABta2nRhY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-text-overlay"><span class="video-category">GAMES MOBILE</span><h3 class="video-title">MELHORES JOGOS</h3></div></div></div>
+                            <div class="swiper-slide"><div class="video-container long-h"><div class="video-card"><iframe src="https://www.youtube.com/embed/STR-M5m7bI8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-text-overlay"><span class="video-category">APRESENTAÇÃO</span><h3 class="video-title">YOTHO_YT - JORNADA</h3></div></div></div>
                         </div>
                     </div>
+                    <div class="swiper-button-next next-long"></div>
+                    <div class="swiper-button-prev prev-long"></div>
                 </div>
-                <div class="swiper-button-next next-long"></div>
-                <div class="swiper-button-prev prev-long"></div>
-            </div>
-        </section>
 
-        <section class="cta-full-wrapper">
-            <div class="social-buttons-container">
-                <a href="https://www.instagram.com/fabmiranda.studios/" target="_blank" class="social-btn instagram">
-                    <i class="fab fa-instagram"></i> INSTAGRAM
-                </a>
-                <a href="https://www.behance.net/ofabriciomiranda" target="_blank" class="social-btn behance">
-                    <i class="fab fa-behance"></i> BEHANCE
-                </a>
-            </div>
+                <div class="switch-portfolio-wrapper">
+                    <p>Procurando por Identidade Visual ou Social Media?</p>
+                    <button onclick="showPortfolio('design')" class="btn-switch-portfolio">
+                        <i class="fas fa-pen-nib"></i> VER PORTFÓLIO DE DESIGN
+                    </button>
+                </div>
+            </section>
+        </div>
 
-            <div class="cta-portfolio-card">
-                <span class="cta-tag" style="color: #0099ff;">PRONTO PARA O PRÓXIMO NÍVEL?</span>
-                <h2 class="cta-title">SUA MARCA MERECE UMA <br><span class="highlight">EDIÇÃO DE IMPACTO</span></h2>
-                <a href="servicos.html" class="btn-cta-impacto">
-                    QUERO IMPULSIONAR MEU NEGÓCIO <span class="arrow">→</span>
-                </a>
+        <!-- PORTFÓLIO DE DESIGN -->
+        <div id="design-section" style="display: none;">
+            <section class="portfolio-section first-section">
+                
+                <!-- DESTAQUES PRINCIPAIS -->
+                <div class="portfolio-header">
+                    <span class="section-tag">DESIGN GRÁFICO</span>
+                    <h2 class="section-title">MEUS <span class="highlight">DESTAQUES</span></h2>
+                    <p class="section-subtitle">MELHORES CRIATIVOS</p>
+                </div>
+                
+                <!-- ESTRUTURA DE GRID POR COLUNAS ATUALIZADA -->
+                <div class="design-grid-columns">
+                    
+                    <!-- Coluna da Esquerda (3 Itens) -->
+                    <div class="design-col">
+                        <div class="design-item story-format">
+                            <img src="img/conv_destaque1.png" alt="Destaque Story 1">
+                        </div>
+                        <div class="design-item story-format">
+                            <img src="img/PRINGLES 2.png" alt="Pringles Story">
+                        </div>
+                        <div class="design-item story-format">
+                            <img src="img/Snickers-42g.png" alt="Snickers Story">
+                        </div>
+                    </div>
+
+                    <!-- Coluna do Meio (4 Itens - Centralizados) -->
+                    <div class="design-col col-center">
+                        <div class="design-item feed-format">
+                            <img src="img/FOSSE CRIME.png" alt="Fosse Crime Feed">
+                        </div>
+                        <div class="design-item story-format">
+                            <img src="img/NADA-MAIS-FAZ.png" alt="Nada Mais Faz Story">
+                        </div>
+                        <div class="design-item story-format">
+                            <img src="img/JUICE MONSTER MANGO LOCO.png" alt="Juice Monster Story">
+                        </div>
+                        <div class="design-item story-format">
+                            <img src="img/SEXTA-SANTA.png" alt="Sexta Santa Story">
+                        </div>
+                    </div>
+
+                    <!-- Coluna da Direita (3 Itens) -->
+                    <div class="design-col">
+                        <div class="design-item story-format">
+                            <img src="img/DONA MARIA.png" alt="Dona Maria Story">
+                        </div>
+                        <div class="design-item story-format">
+                            <img src="img/CAMARÃO PANKO.png" alt="Camarão Panko Story">
+                        </div>
+                        <div class="design-item story-format">
+                            <img src="img/REFORMA_FLAVIO.png" alt="Reforma Flavio Story">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- SEÇÃO PROJETOS POR CLIENTE -->
+                <div class="portfolio-header" style="margin-top: 100px;">
+                    <span class="section-tag">GALERIAS COMPLETAS</span>
+                    <h2 class="section-title" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">PROJETOS POR <span class="highlight">CLIENTE</span></h2>
+                </div>
+
+                <div class="clients-buttons-container">
+                    <button class="client-btn" onclick="openClientModal('dona-maria')">Dona Maria Gastrobar</button>
+                    <button class="client-btn" onclick="openClientModal('divisao')">Divisão Conveniência</button>
+                    <button class="client-btn" onclick="openClientModal('flavio')">Flávio Materiais</button>
+                </div>
+
+                <div class="switch-portfolio-wrapper">
+                    <p>Procurando por Audiovisual e Motion?</p>
+                    <button onclick="showPortfolio('video')" class="btn-switch-portfolio">
+                        <i class="fas fa-video"></i> VER PORTFÓLIO DE EDIÇÃO
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- MODAL DE CLIENTES -->
+        <div id="clientModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeClientModal()">&times;</span>
+                <h3 id="modal-client-title" class="modal-title">Nome do Cliente</h3>
+                <div id="modal-gallery" class="modal-gallery">
+                    <!-- As imagens vão aparecer aqui dentro geradas pelo JS -->
+                </div>
             </div>
-        </section>
+        </div>
+
+        <!-- CTA FINAL -->
+        <div id="global-cta" style="display: none;">
+            <section class="cta-full-wrapper">
+                <div class="social-buttons-container">
+                    <a href="https://www.instagram.com/fabmiranda.studios/" target="_blank" class="social-btn instagram">
+                        <i class="fab fa-instagram"></i> INSTAGRAM
+                    </a>
+                    <a href="https://www.behance.net/ofabriciomiranda" target="_blank" class="social-btn behance">
+                        <i class="fab fa-behance"></i> BEHANCE
+                    </a>
+                </div>
+
+                <div class="cta-portfolio-card">
+                    <span class="cta-tag" style="color: #0099ff;">PRONTO PARA O PRÓXIMO NÍVEL?</span>
+                    <h2 class="cta-title">SUA MARCA MERECE UMA <br><span class="highlight">COMUNICAÇÃO DE IMPACTO</span></h2>
+                    <a href="servicos.html" class="btn-cta-impacto">
+                        QUERO IMPULSIONAR MEU NEGÓCIO <span class="arrow">→</span>
+                    </a>
+                </div>
+            </section>
+        </div>
     </main>
 
     <a href="https://wa.me/5579988748411" class="whatsapp-float" target="_blank">
@@ -268,10 +247,6 @@
                 <img src="img/branco.png" alt="FAB Miranda Logo">
             </div>
             <p class="copyright">© 2026 FAB Miranda Studios. Todos os direitos reservados.</p>
-            <div class="footer-social-links">
-                <a href="https://www.instagram.com/fabmiranda.studios/" target="_blank">INSTAGRAM</a>
-                <a href="https://www.behance.net/ofabriciomiranda" target="_blank">BEHANCE</a>
-            </div>
         </div>
     </footer>
 

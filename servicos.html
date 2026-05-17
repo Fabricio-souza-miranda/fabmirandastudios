@@ -42,29 +42,32 @@
             <div class="portfolio-header">
                 <span class="section-tag reveal-up">SOLUÇÕES DE ALTO IMPACTO</span>
                 <h2 class="section-title reveal-up">NOSSOS <span class="highlight">SERVIÇOS</span></h2>
-                <p class="section-subtitle reveal-fade-impact">TRANSFORMANDO IDEIAS EM RETENÇÃO</p>
+                <p class="section-subtitle reveal-fade-impact">TRANSFORMANDO IDEIAS EM AUDIÊNCIA & RETENÇÃO</p>
             </div>
 
             <div class="servicos-grid">
+                <!-- SERVIÇO 1: EDIÇÃO DE VÍDEO -->
                 <div class="servico-card reveal-left delay-1">
-                    <div class="servico-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Vídeos Dinâmicos</h3>
-                    <p>Domine o algoritmo com edições virais para Reels, TikTok e Shorts. Utilizamos cortes estratégicos, legendas magnéticas e sound design para garantir o máximo de impacto visual.</p>
-                    <span class="card-badge">CRIATIVIDADE & VIRALIZAÇÃO</span>
+                    <div class="servico-icon"><i class="fas fa-video"></i></div>
+                    <h3>EDIÇÃO DE VÍDEO PREMIUM</h3>
+                    <p>Audiovisual de alto nível focado em máxima retenção. Produzimos edições dinâmicas para canais do YouTube, Reels, TikTok e Shorts com cortes estratégicos, sound design imersivo, efeitos visuais e legendas magnéticas que prendem a atenção do início ao fim.</p>
+                    <span class="card-badge">NARRATIVA, STORYTELLING & IMPACTO</span>
                 </div>
 
+                <!-- SERVIÇO 2: DESIGN GRÁFICO -->
                 <div class="servico-card reveal-left delay-2">
-                    <div class="servico-icon"><i class="fab fa-youtube"></i></div>
-                    <h3>Conteúdo para Youtube</h3>
-                    <p>Vídeos longos não precisam ser cansativos. Aplicamos uma narrativa fluida com técnicas de storytelling e quebras de padrão que mantêm o espectador preso do início ao fim.</p>
-                    <span class="card-badge">AUTORIDADE & ENGAJAMENTO</span>
+                    <div class="servico-icon"><i class="fas fa-pen-nib"></i></div>
+                    <h3>DESIGN GRÁFICO ESTRATÉGICO</h3>
+                    <p>Construímos a presença visual forte que o seu negócio precisa. Desde o desenvolvimento de identidades visuais exclusivas até criativos profissionais de alta conversão para anúncios e lançamentos, garantindo que a sua marca se destaque da concorrência.</p>
+                    <span class="card-badge">IDENTIDADE, POSTS & CONVERSÃO</span>
                 </div>
 
+                <!-- SERVIÇO 3: SOCIAL MEDIA -->
                 <div class="servico-card reveal-left delay-3">
-                    <div class="servico-icon"><i class="fas fa-magic"></i></div>
-                    <h3>Motion para Anúncios</h3>
-                    <p>Converta visualizações em vendas com anúncios animados de alta performance. Unimos design gráfico e animação profissional para destacar seu produto no digital.</p>
-                    <span class="card-badge">DESIGN & CONVERSÃO</span>
+                    <div class="servico-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3>GESTÃO E SOCIAL MEDIA</h3>
+                    <p>Estratégia e posicionamento digital para perfis de marcas e criadores de conteúdo. Cuidamos do planejamento visual de postagens institucionais e comerciais, alinhando design estratégico e vídeos focados em engajamento real e crescimento orgânico.</p>
+                    <span class="card-badge">ESTRATÉGIA, ENGAJAMENTO & VALOR</span>
                 </div>
             </div>
         </section>
@@ -72,12 +75,12 @@
         <section class="cta-full-wrapper">
             <div class="cta-portfolio-card">
                 <span class="cta-tag" style="color: #0099ff;">PRECISA DE ALGO PERSONALIZADO?</span>
-                <h2 class="cta-title">VAMOS CRIAR ALGO <br><span class="highlight">MEMORÁVEL JUNTOS</span></h2>
-                <a href="https://wa.me/5579988748411" class="btn-cta-impacto">
+                <h2 class="cta-title">VAMOS CRIAR UMA COMUNICAÇÃO <br><span class="highlight">MEMORÁVEL JUNTOS</span></h2>
+                <a href="https://wa.me/5579988748411" class="btn-cta-impacto" target="_blank">
                     SOLICITAR ORÇAMENTO AGORA <span class="arrow">→</span>
                 </a>
                 <p class="cta-footer-text">
-                    Consulte nossos pacotes Simples e Premium
+                    Consulte nossos pacotes de Design, Audiovisual e Gestão Mensal
                 </p>
             </div>
         </section>
@@ -100,8 +103,27 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- SCRIPT DA NAVBAR MOBILE ATUALIZADO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuIcon = document.querySelector('.mobile-menu-icon');
+            const navLinks = document.querySelector('.nav-links');
 
-    <script src="script.js"></script>
+            menuIcon.addEventListener('click', () => {
+                menuIcon.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'initial';
+            });
+
+            document.querySelectorAll('.nav-links li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuIcon.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = 'initial';
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
