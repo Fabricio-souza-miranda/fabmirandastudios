@@ -91,6 +91,22 @@ const clientsDatabase = {
             'img/Prancheta 6.png',
             'img/Prancheta 5.png'
         ]
+    },
+    'genesis': {
+        title: 'Gênesis Company',
+        images: [
+            'img/gen1.jpeg',
+            'img/IMG-20260522-WA0033.jpg',
+            'img/IMG-20260522-WA0034.jpg',
+            'img/IMG-20260522-WA0038.jpg',
+            'img/IMG-20260522-WA0042.jpg',
+            'img/IMG-20260522-WA0039.jpg',
+            'img/IMG-20260522-WA0040.jpg',
+            'img/IMG-20260522-WA0041.jpg',
+            'img/IMG-20260522-WA0035.jpg',
+            'img/IMG-20260522-WA0036.jpg',
+            'img/IMG-20260522-WA0037.jpg'
+        ]
     }
 };
 

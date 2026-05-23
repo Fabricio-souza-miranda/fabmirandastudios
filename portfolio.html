@@ -135,51 +135,33 @@
                     <p class="section-subtitle">MELHORES CRIATIVOS</p>
                 </div>
                 
-                <!-- ESTRUTURA DE GRID POR COLUNAS ATUALIZADA -->
                 <div class="design-grid-columns">
-                    
-                    <!-- Coluna da Esquerda (3 Itens) -->
+                    <!-- Coluna da Esquerda -->
                     <div class="design-col">
-                        <div class="design-item story-format">
-                            <img src="img/conv_destaque1.png" alt="Destaque Story 1">
-                        </div>
-                        <div class="design-item story-format">
-                            <img src="img/PRINGLES 2.png" alt="Pringles Story">
-                        </div>
-                        <div class="design-item story-format">
-                            <img src="img/Snickers-42g.png" alt="Snickers Story">
-                        </div>
+                        <div class="design-item story-format"><img src="img/conv_destaque1.png" alt="Destaque Story 1"></div>
+                        <div class="design-item story-format"><img src="img/PRINGLES 2.png" alt="Pringles Story"></div>
+                        <div class="design-item story-format"><img src="img/Snickers-42g.png" alt="Snickers Story"></div>
+                        <div class="design-item story-format"><img src="img/IMG-20260522-WA0033.jpg" alt="Genesis Story 1"></div>
                     </div>
 
-                    <!-- Coluna do Meio (4 Itens - Centralizados) -->
+                    <!-- Coluna do Meio -->
                     <div class="design-col col-center">
-                        <div class="design-item feed-format">
-                            <img src="img/FOSSE CRIME.png" alt="Fosse Crime Feed">
-                        </div>
-                        <div class="design-item story-format">
-                            <img src="img/NADA-MAIS-FAZ.png" alt="Nada Mais Faz Story">
-                        </div>
-                        <div class="design-item story-format">
-                            <img src="img/JUICE MONSTER MANGO LOCO.png" alt="Juice Monster Story">
-                        </div>
-                        <div class="design-item story-format">
-                            <img src="img/SEXTA-SANTA.png" alt="Sexta Santa Story">
-                        </div>
+                        <div class="design-item feed-format"><img src="img/FOSSE CRIME.png" alt="Fosse Crime Feed"></div>
+                        <div class="design-item story-format"><img src="img/NADA-MAIS-FAZ.png" alt="Nada Mais Faz Story"></div>
+                        <div class="design-item story-format"><img src="img/JUICE MONSTER MANGO LOCO.png" alt="Juice Monster Story"></div>
+                        <div class="design-item story-format"><img src="img/SEXTA-SANTA.png" alt="Sexta Santa Story"></div>
+                        <div class="design-item feed-format"><img src="img/gen1.jpeg" alt="Genesis Feed 1"></div>
+                        <div class="design-item feed-format"><img src="img/IMG-20260522-WA0042.jpg" alt="Genesis Feed 2"></div>
                     </div>
 
-                    <!-- Coluna da Direita (3 Itens) -->
+                    <!-- Coluna da Direita -->
                     <div class="design-col">
-                        <div class="design-item story-format">
-                            <img src="img/DONA MARIA.png" alt="Dona Maria Story">
-                        </div>
-                        <div class="design-item story-format">
-                            <img src="img/CAMARÃO PANKO.png" alt="Camarão Panko Story">
-                        </div>
-                        <div class="design-item story-format">
-                            <img src="img/REFORMA_FLAVIO.png" alt="Reforma Flavio Story">
-                        </div>
+                        <div class="design-item story-format"><img src="img/DONA MARIA.png" alt="Dona Maria Story"></div>
+                        <div class="design-item story-format"><img src="img/CAMARÃO PANKO.png" alt="Camarão Panko Story"></div>
+                        <div class="design-item story-format"><img src="img/REFORMA_FLAVIO.png" alt="Reforma Flavio Story"></div>
+                        <div class="design-item story-format"><img src="img/IMG-20260522-WA0034.jpg" alt="Genesis Story 2"></div>
+                        <div class="design-item story-format"><img src="img/IMG-20260522-WA0038.jpg" alt="Genesis Story 3"></div>
                     </div>
-
                 </div>
 
                 <!-- SEÇÃO PROJETOS POR CLIENTE -->
@@ -188,10 +170,12 @@
                     <h2 class="section-title" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">PROJETOS POR <span class="highlight">CLIENTE</span></h2>
                 </div>
 
+                <!-- BOTOES COM IDS EXCLUSIVOS PARA AS CORES -->
                 <div class="clients-buttons-container">
-                    <button class="client-btn" onclick="openClientModal('dona-maria')">Dona Maria Gastrobar</button>
-                    <button class="client-btn" onclick="openClientModal('divisao')">Divisão Conveniência</button>
-                    <button class="client-btn" onclick="openClientModal('flavio')">Flávio Materiais</button>
+                    <button class="client-btn" id="btn-dona-maria" onclick="openClientModal('dona-maria')">Dona Maria Gastrobar</button>
+                    <button class="client-btn" id="btn-divisao" onclick="openClientModal('divisao')">Divisão Conveniência</button>
+                    <button class="client-btn" id="btn-flavio" onclick="openClientModal('flavio')">Flávio Materiais</button>
+                    <button class="client-btn" id="btn-genesis" onclick="openClientModal('genesis')">Gênesis Company</button>
                 </div>
 
                 <div class="switch-portfolio-wrapper">
@@ -208,9 +192,7 @@
             <div class="modal-content">
                 <span class="close-modal" onclick="closeClientModal()">&times;</span>
                 <h3 id="modal-client-title" class="modal-title">Nome do Cliente</h3>
-                <div id="modal-gallery" class="modal-gallery">
-                    <!-- As imagens vão aparecer aqui dentro geradas pelo JS -->
-                </div>
+                <div id="modal-gallery" class="modal-gallery"></div>
             </div>
         </div>
 
