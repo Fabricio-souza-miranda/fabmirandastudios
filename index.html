@@ -6,7 +6,7 @@
     <title>FAB Miranda Studios | Home</title>
     <meta name="description" content="Produtora de edição de vídeo, motion design e design para redes sociais. Vídeos dinâmicos, institucionais e posts que geram engajamento.">
     <link rel="canonical" href="https://fabmirandastudios.vercel.app/">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#0a0a0a">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="FAB Miranda Studios">
@@ -18,8 +18,9 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,20 +28,20 @@
     <header id="navbar">
         <nav class="nav-container">
             <div class="logo">
-                <a href="index.html"><img src="img/logo-branco.webp" alt="Logo FAB"></a>
+                <a href="index.html" aria-label="Início"><img src="img/logo-branco.webp" alt="FAB Miranda Studios"></a>
             </div>
 
-            <button class="mobile-menu-icon" aria-label="Abrir Menu">
+            <button class="mobile-menu-icon" aria-label="Abrir menu">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
             </button>
 
             <ul class="nav-links">
-                <li><a href="index.html" class="active">HOME</a></li>
-                <li><a href="portfolio.html">PORTFÓLIO</a></li>
-                <li><a href="servicos.html">SERVIÇOS</a></li>
-                <li><a href="contato.html" class="btn-contato">CONTATO</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="portfolio.html">Portfólio</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="contato.html" class="btn-contato">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -48,71 +49,84 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <span class="subtitle reveal-up">PRODUTORA</span>
+                <span class="subtitle etiqueta reveal-up">Produtora audiovisual</span>
                 <h1 class="main-title reveal-up">
-                    <img src="img/logo-branco.webp" alt="Logo Produtora" style="max-width: 100%; height: auto; max-height: 100px;">
+                    <img src="img/logo-branco.webp" alt="FAB Miranda Studios">
                 </h1>
                 <p class="impact-text reveal-fade-impact">
-                    Transformamos grandes ideias em produções de alto impacto.<br>
-                    Design estratégico e edição de vídeo premium focados em engajamento.
+                    Transformamos grandes ideias em produções de alto impacto.
+                    <strong>Design estratégico e edição de vídeo premium</strong> focados em engajamento.
                 </p>
+                <div class="hero-acoes reveal-fade-impact">
+                    <a href="portfolio.html" class="btn btn-primario btn-grande">
+                        Ver portfólio <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="https://wa.me/5579988748411" class="btn btn-secundario btn-grande" target="_blank" rel="noopener">
+                        Pedir orçamento
+                    </a>
+                </div>
                 <div class="hero-cards">
                     <div class="h-card reveal-fade-card delay-1">
-                        <span class="card-label">EDIÇÃO DE VÍDEO</span>
-                        <p class="card-value">Vídeos Dinâmicos & YouTube</p>
+                        <div class="icone"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div>
+                        <span class="card-label">Edição de vídeo</span>
+                        <p class="card-value">Vídeos dinâmicos e YouTube</p>
                     </div>
                     <div class="h-card reveal-fade-card delay-2">
-                        <span class="card-label">DESIGN GRÁFICO</span>
-                        <p class="card-value">Identidade Visual & Posts</p>
+                        <div class="icone"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg></div>
+                        <span class="card-label">Design gráfico</span>
+                        <p class="card-value">Identidade visual e posts</p>
                     </div>
                     <div class="h-card reveal-fade-card delay-3">
-                        <span class="card-label">SOCIAL MEDIA</span>
-                        <p class="card-value">Estratégia & Engajamento</p>
+                        <div class="icone"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"/><path d="M8 6v8"/></svg></div>
+                        <span class="card-label">Social media</span>
+                        <p class="card-value">Estratégia e engajamento</p>
                     </div>
                     <div class="h-card reveal-fade-card delay-4">
-                        <span class="card-label">SOFTWARES</span>
-                        <p class="card-value">Photoshop, Premiere,<br>After Effects e Illustrator</p>
+                        <div class="icone"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></div>
+                        <span class="card-label">Softwares</span>
+                        <p class="card-value">Photoshop, Premiere, After Effects e Illustrator</p>
                     </div>
                 </div>
             </div>
             <div class="scroll-indicator reveal-fade-impact delay-5">
-                <span>ROLE PARA BAIXO</span>
+                <span>Role para baixo</span>
                 <div class="scroll-line"></div>
             </div>
         </section>
 
         <section class="portfolio-cta">
             <div class="cta-card">
-                <span class="cta-subtitle">TRABALHOS SELECIONADOS</span>
+                <span class="cta-subtitle etiqueta">Trabalhos selecionados</span>
                 <h2 class="cta-title">
-                    <span>CONFIRA NOSSO</span> 
-                    <span class="highlight">PORTFÓLIO</span>
+                    Confira nosso <span class="highlight">portfólio</span>
                 </h2>
                 <p class="cta-text">
                     Produções audiovisuais, design estratégico e gestão de redes sociais para destacar a sua marca no mercado.
                 </p>
-                <a href="portfolio.html" class="btn-portfolio">
-                    <span>VER TODOS OS PROJETOS</span>
-                    <span class="arrow">→</span>
+                <a href="portfolio.html" class="btn btn-primario btn-grande btn-portfolio">
+                    Ver todos os projetos <span class="arrow"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                 </a>
             </div>
         </section>
     </main>
 
-    <a href="https://wa.me/5579988748411" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+    <a href="https://wa.me/5579988748411" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
     </a>
 
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="img/logo-branco.webp" alt="Logo FAB">
+                <img src="img/logo-branco.webp" alt="FAB Miranda Studios">
             </div>
-            <p class="copyright">
-                © 2026 • TODOS OS DIREITOS RESERVADOS
-            </p>
+            <p class="copyright">© 2026 FAB Miranda Studios · Todos os direitos reservados</p>
             <div class="footer-social">
-                <a href="https://www.instagram.com/fabmiranda.studios/" target="_blank" class="instagram-link">INSTAGRAM</a>
+                <a href="https://www.instagram.com/fabmiranda.studios/" target="_blank" rel="noopener" class="instagram-link">
+                    <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> Instagram
+                </a>
+                <a href="https://www.behance.net/ofabriciomiranda" target="_blank" rel="noopener" class="instagram-link">
+                    <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg> Behance
+                </a>
             </div>
         </div>
     </footer>
@@ -125,14 +139,14 @@
             menuIcon.addEventListener('click', () => {
                 menuIcon.classList.toggle('active');
                 navLinks.classList.toggle('active');
-                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'initial';
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
             });
 
             document.querySelectorAll('.nav-links li a').forEach(link => {
                 link.addEventListener('click', () => {
                     menuIcon.classList.remove('active');
                     navLinks.classList.remove('active');
-                    document.body.style.overflow = 'initial';
+                    document.body.style.overflow = '';
                 });
             });
         });

@@ -1,137 +1,241 @@
+/* =========================================================
+   VISUAL DO FM CARDS — escuro neutro estilo Apple / Vercel.
+   Cinzas sem tom azulado, bordas finíssimas e o azul da marca
+   só como destaque (botão principal, links ativos, detalhes).
+   ========================================================= */
+:root {
+    --fundo: #0a0a0a;
+    --superficie: #141414;
+    --superficie-2: #1c1c1c;
+    --superficie-3: #262626;
+    --borda: rgb(255 255 255 / 0.08);
+    --borda-forte: rgb(255 255 255 / 0.16);
+    --texto: #fafafa;
+    --texto-2: #a3a3a3;
+    --texto-3: #6b6b6b;
+    --azul: #0399ff;
+    --azul-hover: #2aa8ff;
+    --verde-whats: #25d366;
+    /* Fonte da Apple (SF Pro) no iPhone/Mac; Inter (muito parecida) no resto */
+    --fonte: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif;
+}
+
 /* RESET E BASE */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020202; color: #ffffff; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-
-/* SCROLLBAR */
-::-webkit-scrollbar { width: 10px; background-color: #020202; }
-::-webkit-scrollbar-track { background: #020202; }
-::-webkit-scrollbar-thumb { background: #003355; border-radius: 10px; border: 2px solid #020202; }
-
-/* NAVBAR (ORIGINAL PORTFOLIO) */
-header { 
-    position: fixed; top: 1.25rem; left: 50%; transform: translateX(-50%); 
-    width: 90%; max-width: 60rem; height: 3.4rem; border-radius: 6.25rem; 
-    z-index: 1000; transition: all 0.5s ease; background: rgba(255, 255, 255, 0.03); 
-    backdrop-filter: blur(1.5rem); -webkit-backdrop-filter: blur(1.5rem); 
-    border: 0.0625rem solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; 
+html { scroll-behavior: smooth; color-scheme: dark; overflow-x: clip; }
+body {
+    font-family: var(--fonte);
+    font-feature-settings: "cv11", "ss01";
+    /* Brilho azul bem leve no alto da página, como no FM Cards */
+    background:
+        radial-gradient(60rem 28rem at 50% -14rem, rgb(3 153 255 / 0.16), transparent 70%) no-repeat,
+        var(--fundo);
+    color: var(--texto);
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
 }
-header.scrolled { border: 0.0625rem solid #0099ff; box-shadow: 0 0 1.5rem rgba(0, 153, 255, 0.2); }
-.nav-container { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
-.logo img { height: 1.5rem; display: block; }
-.nav-links { display: flex; list-style: none; align-items: center; gap: 1.8rem; }
+h1, h2, h3 { letter-spacing: -0.02em; }
+::selection { background: rgb(3 153 255 / 0.35); }
+* { scrollbar-width: thin; scrollbar-color: rgb(255 255 255 / 0.14) transparent; }
 
-/* BOTÃO HAMBÚRGUER */
+/* ---------------------------------------------------------
+   BOTÕES (pílula) — os mesmos do FM Cards
+   --------------------------------------------------------- */
+.btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    height: var(--btn-altura, 2.25rem); padding: 0 var(--btn-px, 1rem);
+    border-radius: 9999px; border: 1px solid transparent;
+    font-family: inherit; font-size: var(--btn-fonte, 0.875rem); font-weight: 500;
+    letter-spacing: -0.01em; white-space: nowrap; text-decoration: none; cursor: pointer;
+    transition: background-color 150ms, color 150ms, border-color 150ms, transform 100ms;
+}
+.btn svg { flex-shrink: 0; }
+.btn:active { transform: scale(0.97); }
+.btn:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; }
+.btn-primario {
+    background: var(--azul); color: #fff;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.08) inset, 0 4px 14px rgb(3 153 255 / 0.25);
+}
+.btn-primario:hover { background: var(--azul-hover); }
+.btn-secundario { background: var(--superficie-2); color: var(--texto); border-color: var(--borda); }
+.btn-secundario:hover { background: var(--superficie-3); border-color: var(--borda-forte); }
+.btn-fantasma { --btn-px: 0.75rem; color: var(--texto-2); background: transparent; }
+.btn-fantasma:hover { background: rgb(255 255 255 / 0.06); color: var(--texto); }
+.btn-grande { --btn-altura: 3rem; --btn-px: 1.5rem; --btn-fonte: 0.9375rem; }
+
+/* Cartão: superfície com borda fina */
+.cartao { background: var(--superficie); border: 1px solid var(--borda); }
+
+/* Etiqueta pequena em pílula (ex.: "Produtora") */
+.etiqueta {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.3rem 0.75rem; border-radius: 9999px;
+    background: rgb(3 153 255 / 0.1); border: 1px solid rgb(3 153 255 / 0.25);
+    color: var(--azul); font-size: 0.75rem; font-weight: 500; letter-spacing: 0;
+}
+
+/* ---------------------------------------------------------
+   TOPO — barra fixa com desfoque e fio azul (igual ao FM Cards)
+   --------------------------------------------------------- */
+header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    border-bottom: 1px solid var(--borda);
+    padding-top: env(safe-area-inset-top);
+}
+/* O desfoque fica numa camada separada: no próprio header ele "prenderia"
+   o menu do celular dentro da barra (o menu ficava transparente). */
+header::after {
+    content: ''; position: absolute; inset: 0; z-index: -1;
+    background: rgb(10 10 10 / 0.85);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+/* Fio azul da marca no topo */
+header::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, transparent, var(--azul), transparent); opacity: 0.7;
+}
+.nav-container {
+    max-width: 80rem; height: 3.5rem; margin: 0 auto; padding: 0 1rem;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+}
+.logo a { display: block; padding: 0.25rem; margin: -0.25rem; border-radius: 0.375rem; }
+.logo img { height: 1.125rem; display: block; }
+.nav-links { display: flex; list-style: none; align-items: center; gap: 0.25rem; }
+
+/* Links do menu: botão "fantasma"; a página atual fica branca com fundo leve */
+.nav-links li a {
+    display: inline-flex; align-items: center; height: 2.25rem; padding: 0 0.875rem;
+    border-radius: 9999px; text-decoration: none;
+    color: var(--texto-2); font-size: 0.875rem; font-weight: 500; letter-spacing: -0.01em;
+    transition: background-color 150ms, color 150ms;
+}
+.nav-links li a:hover { color: var(--texto); background: rgb(255 255 255 / 0.06); }
+.nav-links li a.active { color: var(--texto); background: rgb(255 255 255 / 0.08); }
+
+/* Contato = botão azul principal */
+.nav-links li a.btn-contato {
+    margin-left: 0.5rem; color: #fff; background: var(--azul);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.08) inset, 0 4px 14px rgb(3 153 255 / 0.25);
+}
+.nav-links li a.btn-contato:hover,
+.nav-links li a.btn-contato.active { background: var(--azul-hover); color: #fff; }
+
+/* BOTÃO HAMBÚRGUER (celular) */
 .mobile-menu-icon {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1100;
+    display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+    width: 2.25rem; height: 2.25rem; border-radius: 9999px;
+    background: none; border: none; cursor: pointer; z-index: 1100;
 }
-.mobile-menu-icon .bar { width: 25px; height: 2px; background-color: #fff; transition: 0.4s; }
+.mobile-menu-icon:hover { background: rgb(255 255 255 / 0.07); }
+.mobile-menu-icon .bar { width: 18px; height: 1.5px; border-radius: 2px; background-color: var(--texto); transition: 0.3s; }
 
-/* LINKS COM ANIMAÇÃO DE LINHA */
-.nav-links li a { 
-    position: relative;
-    text-decoration: none; 
-    color: #666; 
-    font-size: 0.8125rem; 
-    font-weight: 700; 
-    padding: 5px 0;
-    transition: color 0.3s ease; 
+/* ---------------------------------------------------------
+   HOME — abertura
+   --------------------------------------------------------- */
+.hero {
+    min-height: 100vh; min-height: 100svh; display: flex; justify-content: center; align-items: center;
+    text-align: center; position: relative; padding: 7rem 1rem 8rem;
 }
-
-.nav-links li a:hover { color: #ffffff; }
-.nav-links li a.active { color: #0099ff; }
-
-.nav-links li a::after {
-    content: '';
-    position: absolute;
-    width: 0; height: 2px;
-    bottom: -2px; left: 0;
-    background-color: #0099ff;
-    transition: width 0.3s ease;
+.hero-content { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 64rem; }
+.subtitle { margin-bottom: 1.75rem; }
+.main-title { margin-bottom: 1.5rem; display: flex; justify-content: center; width: 100%; }
+.main-title img { max-width: 90%; height: auto; max-height: 84px; object-fit: contain; }
+.impact-text {
+    color: var(--texto-2); font-size: 1.0625rem; line-height: 1.6; letter-spacing: -0.01em;
+    max-width: 36rem; margin: 0 auto 3rem;
 }
+.impact-text strong { color: var(--texto); font-weight: 500; }
+.hero-acoes { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.5rem; }
 
-.nav-links li a:hover::after,
-.nav-links li a.active::after { width: 100%; }
-
-/* BOTÃO CONTATO */
-.btn-contato { 
-    border: 0.0625rem solid #0099ff !important; 
-    padding: 0.5rem 1.25rem !important; 
-    border-radius: 2rem; 
-    color: #0099ff !important; 
-    font-weight: 700 !important; 
-    transition: all 0.3s ease-in-out !important; 
+/* Cartões das especialidades */
+.hero-cards {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem;
+    width: 100%; text-align: left;
 }
-.btn-contato::after { display: none !important; }
-.btn-contato:hover { background: #0099ff !important; color: #020202 !important; }
-
-/* HERO SECTION */
-.hero { min-height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; position: relative; padding: 6rem 1rem 8rem 1rem; background: #020202; }
-.hero-content { display: flex; flex-direction: column; align-items: center; width: 100%; }
-.subtitle { color: #0099ff; font-weight: 700; letter-spacing: 0.3rem; font-size: 0.9rem; margin-bottom: 2rem; }
-.main-title { font-size: clamp(2.5rem, 8vw, 4.8rem); font-weight: 800; letter-spacing: -0.15rem; margin-bottom: 1.5rem; line-height: 1.1; display: flex; justify-content: center; width: 100%; }
-.main-title img { max-width: 90%; height: auto; max-height: 90px; object-fit: contain; }
-.impact-text { color: #888; font-size: 1rem; line-height: 1.6; max-width: 35rem; margin: 0 auto 4rem auto; }
-
-/* CARDS HERO */
-.hero-cards { display: flex; justify-content: center; gap: 1.2rem; width: 100%; flex-wrap: wrap; z-index: 10; }
-.h-card { background: rgba(255, 255, 255, 0.01); border: 0.0625rem solid rgba(255, 255, 255, 0.05); padding: 1.2rem 1.8rem; border-radius: 0.4rem; text-align: left; min-width: 14rem; transition: all 0.4s ease; }
-.h-card:hover { border-color: #0099ff; transform: translateY(-5px); background: rgba(0, 153, 255, 0.02); }
-.card-label { color: #444; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem; }
-.card-value { color: #bbb; font-size: 0.85rem; font-weight: 500; }
+.h-card {
+    background: var(--superficie); border: 1px solid var(--borda); border-radius: 1rem;
+    padding: 1.125rem 1.25rem; transition: border-color 200ms, background-color 200ms, transform 200ms;
+}
+.h-card:hover { border-color: var(--borda-forte); background: var(--superficie-2); transform: translateY(-2px); }
+.h-card .icone {
+    width: 2rem; height: 2rem; border-radius: 0.625rem; margin-bottom: 0.875rem;
+    display: flex; align-items: center; justify-content: center;
+    background: rgb(3 153 255 / 0.1); color: var(--azul);
+}
+.card-label { display: block; color: var(--texto); font-size: 0.9375rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 0.25rem; }
+.card-value { color: var(--texto-2); font-size: 0.8125rem; line-height: 1.5; }
 
 /* ROLE PARA BAIXO */
-.scroll-indicator { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.8rem; z-index: 1; }
-.scroll-indicator span { color: #222; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.15rem; }
-.scroll-line { width: 1px; height: 3rem; background: linear-gradient(to bottom, #0099ff, transparent); }
+.scroll-indicator {
+    position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+}
+.scroll-indicator span { color: var(--texto-3); font-size: 0.75rem; font-weight: 500; }
+.scroll-line { width: 1px; height: 2.5rem; background: linear-gradient(to bottom, var(--azul), transparent); }
 
-/* SEÇÃO PORTFOLIO CTA */
-.portfolio-cta { min-height: 100vh; display: flex; justify-content: center; align-items: center; background: #020202; padding: 2rem; }
-.cta-card { background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 2.5rem; padding: 6rem 4rem; max-width: 65rem; width: 100%; text-align: center; }
-.cta-subtitle { color: #0099ff; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.3rem; display: block; margin-bottom: 1.5rem; }
-.cta-title { font-size: clamp(1.8rem, 5vw, 3.8rem); font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; }
-.cta-title .highlight { color: #0099ff; }
-.cta-text { color: #666; font-size: 1.1rem; margin-bottom: 3.5rem; }
-.btn-portfolio { display: inline-flex; align-items: center; gap: 1rem; background: #0099ff; color: #000; text-decoration: none; padding: 1.2rem 2.8rem; border-radius: 0.8rem; font-weight: 800; transition: all 0.3s ease; }
-.btn-portfolio:hover { background: #0088ee; color: #ffffff; box-shadow: 0 0 30px rgba(0, 153, 255, 0.3); }
-.btn-portfolio .arrow { font-size: 1.3rem; transition: transform 0.3s ease; }
-.btn-portfolio:hover .arrow { transform: translateX(5px); color: #ffffff; }
+/* ---------------------------------------------------------
+   HOME — chamada para o portfólio
+   --------------------------------------------------------- */
+.portfolio-cta { display: flex; justify-content: center; padding: 4rem 1rem 6rem; }
+.cta-card {
+    position: relative; overflow: hidden;
+    background: var(--superficie); border: 1px solid var(--borda); border-radius: 1.5rem;
+    padding: 4.5rem 2rem; max-width: 64rem; width: 100%; text-align: center;
+}
+/* Brilho azul suave no alto do cartão */
+.cta-card::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(40rem 16rem at 50% -6rem, rgb(3 153 255 / 0.14), transparent 70%);
+}
+.cta-card > * { position: relative; }
+.cta-subtitle { margin-bottom: 1.25rem; }
+.cta-title { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 600; line-height: 1.1; margin-bottom: 1rem; }
+.cta-title .highlight { color: var(--azul); }
+.cta-text { color: var(--texto-2); font-size: 1.0625rem; line-height: 1.6; max-width: 34rem; margin: 0 auto 2.25rem; }
+.btn-portfolio .arrow { transition: transform 200ms; }
+.btn-portfolio:hover .arrow { transform: translateX(3px); }
 
-/* FOOTER */
-footer { padding: 5rem 2rem; background: #020202; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.02); }
-.footer-content { display: flex; flex-direction: column; align-items: center; }
-.footer-logo img { height: 1.3rem; opacity: 0.8; margin-bottom: 1.5rem; }
-.copyright { color: #444; font-size: 0.75rem; font-weight: 700; margin-bottom: 1.2rem; letter-spacing: 0.05rem; }
-.instagram-link { color: #1a1a1a; text-decoration: none; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.15rem; transition: 0.4s; text-transform: uppercase; }
-.instagram-link:hover { color: #fff; }
+/* ---------------------------------------------------------
+   RODAPÉ
+   --------------------------------------------------------- */
+/* Espaço embaixo para o botão do WhatsApp não cobrir o rodapé */
+footer { padding: 3rem 1rem 6rem; border-top: 1px solid var(--borda); }
+.footer-content {
+    max-width: 80rem; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.footer-logo img { height: 1rem; opacity: 0.85; display: block; }
+.copyright { color: var(--texto-3); font-size: 0.8125rem; }
+.footer-social { display: flex; gap: 0.25rem; }
+.instagram-link {
+    display: inline-flex; align-items: center; gap: 0.4rem; height: 2.25rem; padding: 0 0.75rem;
+    border-radius: 9999px; color: var(--texto-2); text-decoration: none; font-size: 0.875rem; font-weight: 500;
+    transition: background-color 150ms, color 150ms;
+}
+.instagram-link:hover { color: var(--texto); background: rgb(255 255 255 / 0.06); }
 
-/* WHATSAPP */
+/* ---------------------------------------------------------
+   BOTÃO DO WHATSAPP (fixo no canto)
+   --------------------------------------------------------- */
 .whatsapp-float {
-    position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
-    background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center;
-    font-size: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); z-index: 1000;
-    display: flex; align-items: center; justify-content: center; text-decoration: none;
-    animation: float 3s ease-in-out infinite; transition: all 0.3s ease;
+    position: fixed; width: 3.25rem; height: 3.25rem; bottom: 1.5rem; right: 1.5rem; z-index: 1000;
+    background-color: var(--verde-whats); color: #fff; border-radius: 9999px;
+    display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 26px;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.1) inset, 0 8px 24px rgb(0 0 0 / 0.45);
+    transition: transform 200ms, box-shadow 200ms;
 }
+.whatsapp-float:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 0 0 1px rgb(255 255 255 / 0.1) inset, 0 10px 28px rgb(37 211 102 / 0.35); }
+.whatsapp-float svg { width: 1.6rem; height: 1.6rem; }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
-}
-
-/* ANIMAÇÕES GERAIS */
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+/* ---------------------------------------------------------
+   ANIMAÇÕES DE ENTRADA
+   --------------------------------------------------------- */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeInOnly { from { opacity: 0; } to { opacity: 1; } }
 .reveal-up { animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 .reveal-fade-impact { animation: fadeInOnly 0.6s ease forwards; animation-delay: 0.25s; opacity: 0; }
-.reveal-fade-card { animation: fadeInOnly 0.5s ease forwards; opacity: 0; }
+.reveal-fade-card { animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; opacity: 0; }
 .delay-1 { animation-delay: 0.4s; }
 .delay-2 { animation-delay: 0.5s; }
 .delay-3 { animation-delay: 0.6s; }
@@ -143,41 +247,42 @@ footer { padding: 5rem 2rem; background: #020202; text-align: center; border-top
     .reveal-up, .reveal-fade-impact, .reveal-fade-card { animation: none; opacity: 1; }
 }
 
-/* MOBILE AJUSTE */
+/* ---------------------------------------------------------
+   TABLET E CELULAR
+   --------------------------------------------------------- */
+@media (max-width: 900px) {
+    .hero-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 768px) {
     .mobile-menu-icon { display: flex; }
 
+    /* Menu do celular: tela cheia escura, links grandes */
     .nav-links {
-        position: fixed; right: -100%; top: 0;
-        width: 80%; height: 100vh;
-        background: rgba(0, 0, 0, 0.98);
-        backdrop-filter: blur(15px);
-        flex-direction: column; align-items: center; justify-content: center;
-        transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1); gap: 2.5rem;
+        position: fixed; inset: 0; height: 100vh; height: 100dvh;
+        background: var(--fundo);
+        flex-direction: column; justify-content: center; gap: 0.5rem;
+        opacity: 0; visibility: hidden; transition: opacity 250ms, visibility 250ms;
         z-index: 1050;
     }
+    .nav-links.active { opacity: 1; visibility: visible; }
+    .nav-links li a { height: 3rem; padding: 0 1.5rem; font-size: 1.25rem; }
+    .nav-links li a.btn-contato { margin: 1rem 0 0; }
 
-    .nav-links.active { right: 0; }
-
-    .mobile-menu-icon.active .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+    .mobile-menu-icon.active .bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .mobile-menu-icon.active .bar:nth-child(2) { opacity: 0; }
-    .mobile-menu-icon.active .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+    .mobile-menu-icon.active .bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-    .whatsapp-float { width: 50px; height: 50px; bottom: 35%; right: 20px; font-size: 25px; }
+    .whatsapp-float { width: 3rem; height: 3rem; bottom: 1rem; right: 1rem; }
 
-    /* Correções específicas solicitadas para o Mobile da Home */
-    .hero { 
-        height: auto; 
-        min-height: 100vh; 
-        padding-top: 7.5rem; /* Empurra o nome "PRODUTORA" para baixo da barra de navegação */
-        padding-bottom: 10rem; /* Garante que os cards não fiquem por cima do indicador de scroll */
-    }
-    
-    .scroll-indicator {
-        bottom: 2.5rem; /* Posiciona o indicador perfeitamente no rodapé da seção mobile */
-    }
-    
-    .scroll-indicator span {
-        color: #444; /* Melhora um pouco a legibilidade do texto no mobile */
-    }
+    .hero { padding: 6.5rem 1rem 8rem; }
+    .impact-text { font-size: 1rem; margin-bottom: 2rem; }
+    .hero-acoes { margin-bottom: 2.5rem; }
+    .cta-card { padding: 3.5rem 1.25rem; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 420px) {
+    .hero-cards { grid-template-columns: 1fr; }
+    .hero-acoes .btn { flex: 1 1 100%; }
 }

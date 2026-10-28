@@ -88,7 +88,7 @@ function slideDoVideo(video, classe) {
         <div class="video-card">
           <button type="button" class="yt-lite" data-id="${id}" aria-label="Assistir: ${escaparHtml(video.titulo)}">
             <img src="https://i.ytimg.com/vi/${id}/maxresdefault.jpg" alt="" loading="lazy" decoding="async">
-            <span class="yt-play"><i class="fas fa-play"></i></span>
+            <span class="yt-play"><svg width="22" height="22" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg></span>
           </button>
         </div>
         <div class="video-text-overlay">
