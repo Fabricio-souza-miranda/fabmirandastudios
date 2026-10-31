@@ -157,7 +157,33 @@ header::before {
     background: var(--superficie); border: 1px solid var(--borda); border-radius: 1rem;
     padding: 1.125rem 1.25rem; transition: border-color 200ms, background-color 200ms, transform 200ms;
 }
-.h-card:hover { border-color: var(--borda-forte); background: var(--superficie-2); transform: translateY(-2px); }
+.h-card:hover, .h-card:active {
+    border-color: rgb(3 153 255 / 0.45); background: var(--superficie-2); transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgb(3 153 255 / 0.12);
+}
+.h-card:hover .icone, .h-card:active .icone { transform: scale(1.12) rotate(-6deg); background: rgb(3 153 255 / 0.2); }
+
+/* Entrada dos cartões: cada um surge um depois do outro, crescendo e saindo do desfoque;
+   o ícone "pula" logo depois. (fill backwards: depois de entrar, o :hover volta a funcionar) */
+@keyframes cardEntrada {
+    from { opacity: 0; transform: translateY(32px) scale(0.92); filter: blur(10px); }
+    60%  { filter: blur(0); }
+    to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@keyframes iconePula {
+    0%   { transform: scale(0.3) rotate(-25deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+.h-card.reveal-fade-card {
+    opacity: 1;
+    animation-name: cardEntrada; animation-duration: 0.9s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); animation-fill-mode: backwards;
+}
+.h-card .icone { transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1), background-color 200ms; animation: iconePula 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards; }
+.h-card.delay-1 .icone { animation-delay: 0.85s; }
+.h-card.delay-2 .icone { animation-delay: 0.95s; }
+.h-card.delay-3 .icone { animation-delay: 1.05s; }
+.h-card.delay-4 .icone { animation-delay: 1.15s; }
 .h-card .icone {
     width: 2rem; height: 2rem; border-radius: 0.625rem; margin-bottom: 0.875rem;
     display: flex; align-items: center; justify-content: center;
@@ -177,11 +203,44 @@ header::before {
 /* ---------------------------------------------------------
    HOME — chamada para o portfólio
    --------------------------------------------------------- */
-.portfolio-cta { display: flex; justify-content: center; padding: 4rem 1rem 6rem; }
+/* ---------------------------------------------------------
+   HOME — sobre nós (foto + texto)
+   --------------------------------------------------------- */
+.sobre { display: flex; justify-content: center; padding: 1.5rem 1rem 1rem; }
+.sobre-card {
+    display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 2.25rem; align-items: start;
+    width: 100%; max-width: 64rem; padding: 1.5rem;
+    background: var(--superficie); border: 1px solid var(--borda); border-radius: 1.5rem;
+}
+.sobre-foto { position: relative; border-radius: 1rem; overflow: hidden; border: 1px solid var(--borda); aspect-ratio: 3 / 4; background: var(--superficie-2); }
+/* Desfoque só nas bordas (o centro, com o rosto, fica nítido) + escurecido leve para fundir com o site */
+.sobre-foto::before, .sobre-foto::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+.sobre-foto::before {
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    -webkit-mask-image: radial-gradient(ellipse 62% 58% at 50% 42%, transparent 55%, #000 100%);
+            mask-image: radial-gradient(ellipse 62% 58% at 50% 42%, transparent 55%, #000 100%);
+}
+.sobre-foto::after {
+    background: radial-gradient(ellipse 75% 70% at 50% 42%, transparent 55%, rgb(10 10 10 / 0.55) 100%),
+                linear-gradient(to top, rgb(10 10 10 / 0.5), transparent 28%);
+}
+.sobre-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; display: block; }
+.sobre-texto { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+.sobre-titulo { font-size: clamp(1.5rem, 3.2vw, 2.125rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; }
+.sobre-titulo .highlight { color: var(--azul); }
+.sobre-texto p .dest { color: var(--texto); font-weight: 600; }
+.sobre-texto p .dest-azul { color: var(--azul); }
+.sobre-texto p { color: var(--texto-2); font-size: 0.9375rem; line-height: 1.6; letter-spacing: -0.01em; }
+.sobre-numeros { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; width: 100%; margin: 0.5rem 0 0.75rem; }
+.sobre-numeros > div { background: var(--superficie-2); border: 1px solid var(--borda); border-radius: 0.875rem; padding: 0.875rem 1rem; }
+.sobre-numeros strong { display: block; color: var(--azul); font-size: 1.375rem; font-weight: 600; letter-spacing: -0.02em; }
+.sobre-numeros span { display: block; margin-top: 0.125rem; color: var(--texto-2); font-size: 0.75rem; line-height: 1.4; }
+
+.portfolio-cta { display: flex; justify-content: center; padding: 1.5rem 1rem 3.5rem; }
 .cta-card {
     position: relative; overflow: hidden;
     background: var(--superficie); border: 1px solid var(--borda); border-radius: 1.5rem;
-    padding: 4.5rem 2rem; max-width: 64rem; width: 100%; text-align: center;
+    padding: 3rem 2rem; max-width: 64rem; width: 100%; text-align: center;
 }
 /* Brilho azul suave no alto do cartão */
 .cta-card::before {
@@ -190,9 +249,9 @@ header::before {
 }
 .cta-card > * { position: relative; }
 .cta-subtitle { margin-bottom: 1.25rem; }
-.cta-title { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 600; line-height: 1.1; margin-bottom: 1rem; }
+.cta-title { font-size: clamp(1.75rem, 4.2vw, 2.75rem); font-weight: 600; line-height: 1.1; margin-bottom: 1rem; }
 .cta-title .highlight { color: var(--azul); }
-.cta-text { color: var(--texto-2); font-size: 1.0625rem; line-height: 1.6; max-width: 34rem; margin: 0 auto 2.25rem; }
+.cta-text { color: var(--texto-2); font-size: 1.0625rem; line-height: 1.6; max-width: 34rem; margin: 0 auto 1.75rem; }
 .btn-portfolio .arrow { transition: transform 200ms; }
 .btn-portfolio:hover .arrow { transform: translateX(3px); }
 
@@ -200,7 +259,7 @@ header::before {
    RODAPÉ
    --------------------------------------------------------- */
 /* Espaço embaixo para o botão do WhatsApp não cobrir o rodapé */
-footer { padding: 3rem 1rem 6rem; border-top: 1px solid var(--borda); }
+footer { padding: 2.25rem 1rem 5rem; border-top: 1px solid var(--borda); }
 .footer-content {
     max-width: 80rem; margin: 0 auto;
     display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
@@ -245,6 +304,7 @@ footer { padding: 3rem 1rem 6rem; border-top: 1px solid var(--borda); }
 /* Quem pediu menos movimento no celular/PC vê tudo na hora */
 @media (prefers-reduced-motion: reduce) {
     .reveal-up, .reveal-fade-impact, .reveal-fade-card { animation: none; opacity: 1; }
+    .h-card.reveal-fade-card, .h-card .icone { animation: none; }
 }
 
 /* ---------------------------------------------------------
@@ -278,11 +338,18 @@ footer { padding: 3rem 1rem 6rem; border-top: 1px solid var(--borda); }
     .hero { padding: 6.5rem 1rem 8rem; }
     .impact-text { font-size: 1rem; margin-bottom: 2rem; }
     .hero-acoes { margin-bottom: 2.5rem; }
-    .cta-card { padding: 3.5rem 1.25rem; }
+    .cta-card { padding: 2.5rem 1.25rem; }
     .footer-content { flex-direction: column; text-align: center; }
 }
 
 @media (max-width: 420px) {
     .hero-cards { grid-template-columns: 1fr; }
     .hero-acoes .btn { flex: 1 1 100%; }
+}
+
+@media (max-width: 768px) {
+    .sobre-card { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem; }
+    .sobre-foto { aspect-ratio: 4 / 5; }
+    .sobre-numeros { grid-template-columns: minmax(0, 1fr); }
+    .sobre-numeros > div { display: flex; align-items: baseline; gap: 0.75rem; }
 }

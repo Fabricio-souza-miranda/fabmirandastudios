@@ -35,6 +35,28 @@
     background: rgb(3 153 255 / 0.1); color: var(--azul); transition: background-color 200ms, color 200ms;
 }
 .choice-card:hover .choice-icon-wrapper { background: var(--azul); color: #fff; }
+/* Entrada da tela de escolha: tudo surge em fade, em sequência (título primeiro, depois os 3 quadrados).
+   fill "backwards": terminada a entrada, o :hover volta a funcionar normalmente. */
+@keyframes fadeSobe { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeSimples { from { opacity: 0; } to { opacity: 1; } }
+#choice-section .section-tag { animation: fadeSobe 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.05s backwards; }
+#choice-section .section-title { animation: fadeSobe 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s backwards; }
+#choice-section .section-subtitle { animation: fadeSobe 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.28s backwards; }
+.choice-card { animation: fadeSobe 0.9s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+.choice-card:nth-child(1) { animation-delay: 0.45s; }
+.choice-card:nth-child(2) { animation-delay: 0.6s; }
+.choice-card:nth-child(3) { animation-delay: 0.75s; }
+.choice-card .choice-icon-wrapper, .choice-card .choice-title, .choice-card .choice-desc, .choice-card .choice-btn {
+    animation: fadeSimples 0.8s ease backwards;
+}
+.choice-card:nth-child(1) > * { animation-delay: 0.7s; }
+.choice-card:nth-child(2) > * { animation-delay: 0.85s; }
+.choice-card:nth-child(3) > * { animation-delay: 1s; }
+@media (prefers-reduced-motion: reduce) {
+    #choice-section .section-tag, #choice-section .section-title, #choice-section .section-subtitle,
+    .choice-card, .choice-card > * { animation: none; }
+}
+
 .after-effects-mark { font-size: 1.125rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
 .choice-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
 .choice-desc { color: var(--texto-2); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
