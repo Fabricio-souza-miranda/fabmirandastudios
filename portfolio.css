@@ -188,7 +188,12 @@
 .destaques-prox { right: 0.25rem; }
 .destaques-seta:hover { background: rgb(40 40 40 / 0.9); }
 @media (max-width: 600px) {
-    .destaques-trilho { grid-auto-columns: 82vw; }
+    /* No celular: cada destaque fica centralizado, com um pedaço da vizinha de cada lado (dá para arrastar). */
+    .destaques-trilho {
+        grid-auto-columns: 80vw;
+        padding-inline: calc((100% - 80vw) / 2);
+    }
+    .destaques-trilho .molde { scroll-snap-align: center; }
     .destaques-seta { display: none !important; }
 }
 .molde-trilho.arrastando, .destaques-trilho.arrastando { cursor: grabbing; scroll-snap-type: none; }
