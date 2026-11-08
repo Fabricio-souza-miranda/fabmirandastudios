@@ -791,7 +791,13 @@
                      MOSAICO DE DESTAQUES
                 ================================================== -->
 
-                <div class="design-grid-columns">
+                <div class="destaques-caixa">
+                    <button type="button" class="destaques-seta destaques-ant" aria-label="Destaque anterior">‹</button>
+                    <div id="destaques-trilho" class="destaques-trilho" style="display: none;"></div>
+                    <button type="button" class="destaques-seta destaques-prox" aria-label="Próximo destaque">›</button>
+                </div>
+
+                <div id="mosaico-reserva" class="design-grid-columns">
 
 
                     <!-- COLUNA ESQUERDA -->
@@ -923,6 +929,10 @@
                     </div>
 
                 </div>
+
+
+
+                
 
 
 
@@ -1333,6 +1343,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script src="portfolio-script.js"></script>
+    <script src="portfolio-design.js"></script>
 
 
     <script>

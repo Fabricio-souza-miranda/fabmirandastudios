@@ -144,6 +144,80 @@
 .close-modal:hover { background: rgb(255 255 255 / 0.07); color: var(--texto); }
 .modal-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; padding-right: 3rem; }
 .modal-gallery { column-count: 3; column-gap: 1rem; }
+
+/* MOLDE DE INSTAGRAM (design do painel) */
+.galeria-moldes { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+.galeria-moldes .molde { margin: 0; }
+.design-destaques { margin-bottom: 2rem; }
+.destaques-trilho {
+    display: grid; grid-auto-flow: column; grid-auto-columns: clamp(300px, 44vw, 480px);
+    gap: 1.25rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0.5rem 1rem 1rem;
+    scrollbar-width: none;
+}
+.destaques-trilho::-webkit-scrollbar { display: none; }
+.destaques-trilho .molde { scroll-snap-align: start; }
+.molde {
+    background: #0a0a0a; color: var(--texto); border: 1px solid var(--borda); border-radius: 1rem;
+    overflow: hidden; position: relative;
+}
+/* Cabeçalho em fade preto por cima da arte (como o Instagram atual), sem barra. */
+.molde-topo {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 3; display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.8rem 0.8rem 2.2rem;
+    background: linear-gradient(to bottom, rgb(0 0 0 / 0.85) 0%, rgb(0 0 0 / 0.5) 55%, rgb(0 0 0 / 0) 100%);
+    pointer-events: none;
+}
+.molde .molde-avatar {
+    width: 2rem; height: 2rem; min-width: 2rem; border-radius: 9999px; object-fit: cover; margin: 0; border: 0;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.25); background: #000;
+}
+.molde-usuario { font-size: 0.8125rem; font-weight: 600; color: #fff; text-shadow: 0 1px 4px rgb(0 0 0 / 0.5); }
+.molde-arte { position: relative; aspect-ratio: 4 / 5; background: #111; }
+.molde-trilho { display: flex; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.molde-trilho::-webkit-scrollbar { display: none; }
+.molde-trilho, .destaques-trilho { cursor: grab; user-select: none; -webkit-user-select: none;  touch-action: pan-x pan-y; }
+.destaques-caixa { position: relative; width: 100%; min-width: 0; max-width: 100%; }
+.destaques-trilho { width: 100%; min-width: 0; max-width: 100%; box-sizing: border-box; }
+.destaques-seta {
+    position: absolute; top: 40%; z-index: 4; display: none; align-items: center; justify-content: center;
+    width: 2.6rem; height: 2.6rem; border-radius: 9999px; border: 1px solid var(--borda);
+    background: rgb(10 10 10 / 0.85); color: #fff; font-size: 1.6rem; line-height: 1; cursor: pointer;
+}
+.destaques-caixa.com-setas .destaques-seta { display: flex; }
+.destaques-ant { left: 0.25rem; }
+.destaques-prox { right: 0.25rem; }
+.destaques-seta:hover { background: rgb(40 40 40 / 0.9); }
+@media (max-width: 600px) {
+    .destaques-trilho { grid-auto-columns: 82vw; }
+    .destaques-seta { display: none !important; }
+}
+.molde-trilho.arrastando, .destaques-trilho.arrastando { cursor: grabbing; scroll-snap-type: none; }
+.molde-trilho img, .destaques-trilho img { -webkit-user-drag: none; }
+.molde .molde-trilho img {
+    flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: center;
+    border: 0; border-radius: 0; margin: 0;
+}
+.molde-contador {
+    position: absolute; top: 0.6rem; right: 0.6rem; background: rgb(0 0 0 / 0.6);
+    padding: 0.15rem 0.5rem; border-radius: 9999px; font-size: 0.6875rem; font-weight: 600;
+}
+.molde-seta {
+    position: absolute; top: 50%; transform: translateY(-50%); width: 1.9rem; height: 1.9rem;
+    border-radius: 9999px; border: 0; background: rgb(0 0 0 / 0.6); color: #fff; font-size: 1.2rem; line-height: 1;
+    cursor: pointer;
+}
+.molde-ant { left: 0.5rem; }
+.molde-prox { right: 0.5rem; }
+.molde-bolinhas { position: absolute; bottom: 0.6rem; left: 0; right: 0; display: flex; justify-content: center; gap: 0.3rem; }
+.molde-bolinhas span { width: 0.4rem; height: 0.4rem; border-radius: 9999px; background: rgb(255 255 255 / 0.35); }
+.molde-bolinhas span.ativa { background: #0399ff; }
+.molde-acoes { display: flex; align-items: center; gap: 0.9rem; padding: 0.6rem 0.8rem 0.9rem; }
+.molde-acoes .molde-salvar { margin-left: auto; }
+.molde-acoes span { display: inline-flex; }
+.molde-curtir { background: none; border: 0; padding: 0; margin: 0; color: inherit; cursor: pointer; display: inline-flex; }
+.molde-curtir.curtido { color: #ed4956; }
+.molde-curtir.curtido svg { fill: #ed4956; animation: coracao-pulo 0.3s ease-out; }
+@keyframes coracao-pulo { 0% { transform: scale(0.8); } 60% { transform: scale(1.2); } 100% { transform: scale(1); } }
 .modal-gallery img { width: 100%; border-radius: 0.875rem; border: 1px solid var(--borda); margin-bottom: 1rem; display: block; break-inside: avoid; }
 
 /* TROCAR DE CATEGORIA */
